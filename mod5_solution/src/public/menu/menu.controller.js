@@ -6,6 +6,7 @@ angular.module('public')
 
 MenuController.$inject = ['menuCategories'];
 function MenuController(menuCategories) {
+  console.log("Init the MenuController");
   var $ctrl = this;
   $ctrl.menuCategories = menuCategories;
 }
