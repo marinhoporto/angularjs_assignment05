@@ -4,8 +4,6 @@
 angular.module('common')
 .service('SignupService', SignupService);
 
-
-//SignupService.$inject = [''];
 function SignupService() {
   console.log("SignupService -> Init");
   var service = this;

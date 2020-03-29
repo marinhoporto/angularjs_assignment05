@@ -4,13 +4,13 @@
 angular.module('common')
 .service('MenuService', MenuService);
 
-
 MenuService.$inject = ['$http', 'ApiPath'];
 function MenuService($http, ApiPath) {
   console.log("MenuService -> Init");
   var service = this;
   service.categories = [];
 
+  // Get categories
   service.getCategories = function () {
 
     if(service.categories == "") {
@@ -27,6 +27,7 @@ function MenuService($http, ApiPath) {
     }
   };
 
+  // Get menu items from a category
   service.getMenuItems = function (category) {
     var config = {};
     if (category) {
@@ -38,12 +39,13 @@ function MenuService($http, ApiPath) {
     });
   };
 
+  // Get a menu item
   service.getMenuItem = function (short_name) {
      var config = {};
      var url_ext = '/menu_items/' + short_name.toUpperCase() + '.json';
      console.log("MenuService -> getMenuItem -> url_ext: ",url_ext);
      var response = $http.get(ApiPath + url_ext, config);
-     return response;     
+     return response;
   };
 }
 
