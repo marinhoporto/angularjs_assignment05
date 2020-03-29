@@ -34,7 +34,7 @@ function SignUpController(SignupService,MenuService) {
           return true;
         })
         .catch(function (error) {
-          console.log("SignUpController -> checkUserDish() -> Menus NOT exist, response status = ",error.status);
+          console.log("SignUpController -> checkUserDish() -> Menus NOT exist, response status = ",error.data);
           signup.message_favdish = "No such menu number exists";
           return false;
         })
@@ -56,7 +56,7 @@ function SignUpController(SignupService,MenuService) {
      signup.clearFields();
      signup.message_submit = "Your information has been saved";
      console.log("SignUpController -> sendNewsLetter() -> message",signup.message_submit);
-  }; 
+  };
 
  // Clear fields and message
   signup.clearFields = function(){
