@@ -20,6 +20,6 @@
     </div>
     <div class="form-group">
       <label for="fav_dish">Favourite dish:</label> {{ myinfoCtrl.user[0].fav_dish_items.description}}<br>
-      <img ng-src="images/menu/{{ myinfoCtrl.user[0].fav_dish_items.category_short_name }}/{{ myinfoCtrl.user[0].fav_dish_items.category_short_name }}.jpg" alt="">
+      <img ng-src="{{ myinfoCtrl.url_path }}/{{ myinfoCtrl.user[0].fav_dish_items.short_name }}.jpg" alt="">
     </div>
 </div>
