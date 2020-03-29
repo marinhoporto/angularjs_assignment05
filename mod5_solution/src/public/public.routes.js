@@ -51,6 +51,17 @@ function routeConfig ($stateProvider) {
       //     return MenuService.getCategories();
       //   }]
       // }
+    })
+    .state('public.myinfo', {
+      url: '/myinfo',
+      templateUrl: 'src/public/myinfo/myinfo.html',
+      controller: 'MyInfoController',
+      controllerAs: 'myinfoCtrl'
+      // resolve: {
+      //   menuCategories: ['MenuService', function (MenuService) {
+      //     return MenuService.getCategories();
+      //   }]
+      // }
     });
 }
 })();

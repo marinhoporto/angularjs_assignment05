@@ -9,7 +9,7 @@ angular.module('common')
 function SignupService() {
   console.log("SignupService -> Init");
   var service = this;
-  service.signup_options = [];
+  service.signup_options = "";
 
   // Set the signup options
   service.setSignupOptions = function (p_signup_options) {
