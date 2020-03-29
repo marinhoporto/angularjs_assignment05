@@ -38,8 +38,13 @@ function MenuService($http, ApiPath) {
     });
   };
 
+  service.getMenuItem = function (short_name) {
+     var config = {};
+     var url_ext = '/menu_items/' + short_name.toUpperCase() + '.json';
+     console.log("MenuService -> getMenuItem -> url_ext: ",url_ext);
+     var response = $http.get(ApiPath + url_ext, config);
+     return response;     
+  };
 }
-
-
 
 })();

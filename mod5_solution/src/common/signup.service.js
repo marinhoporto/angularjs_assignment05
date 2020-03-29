@@ -14,6 +14,7 @@ function SignupService() {
   // Set the signup options
   service.setSignupOptions = function (p_signup_options) {
       service.signup_options = p_signup_options;
+      console.log("SignupService -> setSignupOptions()",p_signup_options);
   };
 
   // Get the signup options

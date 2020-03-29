@@ -1,77 +1,91 @@
-<h2 id="signup-title" class="text-center">Sign Up</h2>
+<h2 id="signup-title" class="text-center">Fill the form to sign up</h2>
 <!-- <div class="container" ng-controller="SignUpController as signup"> -->
   <div class="container">
-  <h2>Fill the form to sign up</h2>
+  <!-- <h2>Fill the form to sign up</h2> -->
   <form name='signupForm' novalidate>
     <div class="form-group">
       <label for="first_name">First Name:</label>
       <input type="text" class="form-control" name="first_name" placeholder="Enter first name"
-         ng-model="signupCtrl.first_name"
+         ng-model="signupCtrl.user.first_name"
          required
          minlength="4">
          <span
-            ng-if="(signupForm.first_name.$error.minlength && signupForm.first_name.$touched)">
+            ng-if="(signupForm.user.first_name.$error.minlength && signupForm.user.first_name.$touched)">
             First name must be at least 4 characters long
          </span>
          <span
-            ng-if="(signupForm.first_name.$error.required && signupForm.first_name.$touched)">
+            ng-if="(signupForm.user.first_name.$error.required && signupForm.user.first_name.$touched)">
             First name is required
          </span>
     </div>
     <div class="form-group">
       <label for="last_name">Last Name:</label>
       <input type="text" class="form-control" name="last_name" placeholder="Enter last name"
-          ng-model="signupCtrl.last_name"
+          ng-model="signupCtrl.user.last_name"
           required
           minlength="4">
           <span
-             ng-if="(signupForm.last_name.$error.minlength && signupForm.last_name.$touched)">
+             ng-if="(signupForm.user.last_name.$error.minlength && signupForm.user.last_name.$touched)">
              Last name must be at least 4 characters long
           </span>
           <span
-             ng-if="(signupForm.last_name.$error.required && signupForm.last_name.$touched)">
+             ng-if="(signupForm.user.last_name.$error.required && signupForm.user.last_name.$touched)">
              Last name is required
           </span>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" name="email" placeholder="Enter email"
-          ng-model="signupCtrl.email"
+          ng-model="signupCtrl.user.email"
           required>
-          <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
-                Must be a valid email address: handle@domain format
+          <span ng-if="signupForm.user.email.$invalid && signupForm.user.email.$touched">
+                Must be a valid email address
           </span>
     </div>
     <div class="form-group">
       <label for="address">Address:</label>
       <input type="text" class="form-control" name="address" placeholder="Enter address"
-          ng-model="signupCtrl.address"
+          ng-model="signupCtrl.user.address"
           required>
-          <span ng-if="signupForm.address.$error.required && signupForm.address.$touched">
+          <span ng-if="signupForm.user.address.$error.required && signupForm.user.address.$touched">
                 Address is required
           </span>
     </div>
     <div class="form-group">
       <label for="phone">Phone:</label>
       <input type="text" class="form-control" name="phone" placeholder="Phone ###-###-####"
-          ng-model="signupCtrl.phone"
+          ng-model="signupCtrl.user.phone"
           required
           pattern="(\d{3})-(\d{3})-(\d{4})">
-          <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+          <span ng-if="signupForm.user.phone.$invalid && signupForm.user.phone.$touched">
             Phone must be in the format ###-###-####.
           </span>
     </div>
     <div class="form-group">
+      <label for="fav_dish">Favourite dish:</label>
+      <input type="text" class="form-control" name="fav_dish" placeholder="Favourite dish"
+          ng-model="signupCtrl.user.fav_dish">
+          <span ng-if="signupCtrl.message_favdish">
+              {{ signupCtrl.message_favdish }}
+          </span>
+    </div>
+    <!-- <div class="form-group">
       <label for="fav_menu">Favourite menu:</label>
       <select class="form-control" name="fav_menu"
-        ng-model="signupCtrl.fav_menu"
-        ng-change="signupCtrl.showSelectValue(signupCtrl.fav_menu)">
+        ng-model="signupCtrl.user.fav_menu"
+        required>
+        <option value="">--</option>
         <option ng-repeat="menuCategory in signupCtrl.menuCategories" value="{{ menuCategory.short_name }}">  {{ menuCategory.name }} </option>
       </select>
-    </div>
+    </div> -->
     <button type="submit" class="btn btn-default"
         ng-disabled="signupForm.$invalid"
-        ng-click="signupCtrl.submit()"
+        ng-click="signupCtrl.submitForm()"
     >Submit</button>
+    <div class="form-group">
+        <span ng-if="signupCtrl.message_submit">
+            {{ signupCtrl.message_submit }}
+        </span>
+    </div>
   </form>
 </div>
